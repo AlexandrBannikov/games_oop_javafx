@@ -8,18 +8,18 @@ public class BishopBlack implements Figure {
     private final Cell position;
 
     public BishopBlack(final Cell ps) {
-        this.position = ps;
+        position = ps;
     }
 
     @Override
     public Cell position() {
-        return this.position;
+        return position;
     }
 
     @Override
-    public Cell[] way(Cell dest) throws ImpossibleMoveException {
+    public Cell[] way(Cell dest) {
         if (!isDiagonal(position, dest)) {
-            throw new ImpossibleMoveException(
+            throw  new ImpossibleMoveException(
                     String.format("Could not way by diagonal from %s to %s", position, dest));
         }
         int size = Math.abs(position.getX() - dest.getX());

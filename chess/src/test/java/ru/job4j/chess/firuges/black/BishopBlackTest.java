@@ -20,11 +20,11 @@ public class BishopBlackTest {
     public void copyBishop() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C8);
         Figure copy = bishopBlack.copy(Cell.C5);
-        assertEquals(copy.position(), is(Cell.C5));
+        assertEquals(copy.position(), Cell.C5);
     }
 
     @Test
-    public void bishopWay() throws ImpossibleMoveException {
+    public void bishopWay()throws ImpossibleMoveException {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         Cell[] result = {Cell.D2, Cell.E3, Cell.F4, Cell.G5};
         assertThat(bishopBlack.way(Cell.G5), is(result));

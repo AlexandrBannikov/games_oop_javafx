@@ -2,6 +2,7 @@ package ru.job4j.chess;
 
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
+
 import java.util.Arrays;
 
 public final class Logic {
@@ -21,15 +22,14 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
-        boolean rsl = true;
-        for (int i = 0; i < steps.length; i++) {
-            for (int j = 0; j < index; j++) {
-                if (steps[i].equals(figures[j].position())) {
-                    throw new IllegalStateException();
+        for (Figure figure : figures) {
+            for (Cell step : steps) {
+                if (figure != null && figure.position().equals(step)) {
+                    throw new OccupiedCellException("There are other figures on steps");
                 }
             }
         }
-        return rsl;
+        return true;
     }
 
     public void clean() {
@@ -44,6 +44,6 @@ public final class Logic {
                 return index;
             }
         }
-        throw new FigureNotFoundException("Figure not found on the board.");
+        throw new FigureNotFoundException("");
     }
 }
