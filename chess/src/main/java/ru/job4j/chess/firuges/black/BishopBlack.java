@@ -37,11 +37,11 @@ public class BishopBlack implements Figure {
     }
 
     public boolean isDiagonal(Cell source, Cell dest) {
-        return Math.abs(dest.getY() - dest.getX()) == Math.abs(source.getY() - source.getX());
+        return Math.abs(dest.getY() - source.getY()) == Math.abs(dest.getX() - source.getX());
     }
 
     @Override
-    public Figure copy(Cell dest) {
-        return new BishopBlack(dest);
+    public Figure copy(Cell destination) {
+        return new BishopBlack(destination);
     }
 }
